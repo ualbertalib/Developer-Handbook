@@ -17,6 +17,7 @@ the 'Default Machine Folder' go to the Start menu and enter 'cmd'.  Open the app
 Simple Walkthrough
 ==================
 Now you're ready to create your first Vagrant based project.
+
 1. Open the command line, 'cmd' from the Start menu
 2. Create a directory for your project
 ```
