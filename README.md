@@ -8,7 +8,7 @@ Version Control
 Version control is important to our operation
  * integration with other developers work
  * manages change history
- * can revert to a previous working state (so do mistakes)
+ * can revert working copy to a previous working state
  * tag releases
  * backup
 
