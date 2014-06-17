@@ -19,7 +19,7 @@ SSH Keys
 --------
 The Secure Shell (SSH) Protocol is a protocol for secure remote login and other secure network services over an insecure network. [[The Secure Shell (SSH) Protocol Architecture](http://www.ietf.org/rfc/rfc4251.txt)]
 
-The recommended way to authenticate and communicate over ssh is through public/private key pairs. Your share your public key with a server and it is stored in .ssh/authorized_keys.  Keep your private key secret and on your desktop machine (in your ~/.ssh/ directory).
+The recommended way to authenticate and communicate over ssh is through public/private key pairs. You share your public key with a server and it is stored in .ssh/authorized_keys.  Keep your private key secret and on your desktop machine (in your ~/.ssh/ directory).
 
 To create your keys: 
 
