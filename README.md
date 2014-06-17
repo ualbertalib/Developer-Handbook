@@ -12,7 +12,7 @@ Version control is important to our operation
  * tag releases
  * backup
 
-Github https://github.com/ualbertalib
+Github https://github.com/ualbertalib  
 Mercurial https://code.library.ualberta.ca/hg/ -- requires Windows credentials
 
 DevOps
@@ -22,7 +22,7 @@ DevOps means different things to different people.  To us it means developers an
 ###Dev/Test/Production
 Once an application is 'working' it is deployed in dev, test, and prod environments. This facilitates the hand off between a developer and operations by giving the developer a production like environment to build in, a test environment for developers and operations to collaborate and practice on, and a production environment that is a known quantity to operations because it's been proven.
 
-Development Environment
+####Development Environment
  * developers have sudo privileges
  * some software probably installed from version control
  * if depends on services like MySQL, these probably exist on the same machine
@@ -30,14 +30,16 @@ Development Environment
  * may be 'golden' vm on developer desktop or vm provided by operations for this purpose
  * no backups!
 
-Test Environment
+**Using [Vagrant](Vagrant/README.md) to create a development environment on your workstation is recommended.**
+
+####Test Environment
  * developers may have sudo privileges
  * software installed from RPM
  * installed using configuration management software
  * may point to services (like MySQL) on external test server
  * primary purpose is to run a batery of tests for acceptance and performance
 
-Production Environments
+####Production Environments
  * developers do not have sudo privileges
  * software installed from RPM
  * installed using configuration management software
@@ -75,6 +77,8 @@ A bug or feature is identified which requires a change.
 9. Tests pass
 10. Change request for anything big
 11. Deploy/update component in 'prod' environment
+
+**Writing and running [Ansible](Ansible/README.md) playbooks is the recommended practice for deployment of applications.**
 
 TODO
 ----
