@@ -15,6 +15,38 @@ Version control is important to our operation
 Github https://github.com/ualbertalib  
 Mercurial https://code.library.ualberta.ca/hg/ -- requires Windows credentials
 
+SSH Keys
+--------
+The Secure Shell (SSH) Protocol is a protocol for secure remote login and other secure network services over an insecure network. [[The Secure Shell (SSH) Protocol Architecture](http://www.ietf.org/rfc/rfc4251.txt)]
+
+The recommended way to authenticate and communicate over ssh is through public/private key pairs. Your share your public key with a server and it is stored in .ssh/authorized_keys.  Keep your private key secret and on your desktop machine (in your ~/.ssh/ directory).
+
+To create your keys: 
+
+```ssh-keygen -t rsa ```
+
+They are located 
+
+```
+ls ~/.ssh
+id_rsa id_rsa.pub
+```
+
+To use these as credentials:
+
+1. share your public key (**id_rsa.pub**) with your friendly neighborhood systems administrator:
+2. before attempting to login for the first time in a session (hint add it to your bash profile)
+ 
+  ```
+  ssh-add
+  ``` 
+
+3. to see which keys are currently loaded 
+
+  ```
+  ssh-add -l
+  ```
+
 DevOps
 ------
 DevOps means different things to different people.  To us it means developers and operations working together (Dev+Ops=DevOps) towards the same goal of putting quality applications in production as efficiently and painlessly as possible.
