@@ -9,7 +9,7 @@ https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3.msi via http://www.vagran
 3. The 'Default Machine Folder' for Virtualbox is 'VirtualBox VMs' in your user directory.  Since, at our place of work,
 our user directory is on a shared drive that is synced on startup/shutdown this is a less than ideal to be storing 
 files associated with our VMs.  If you notice disk space warnings or really slow logins this could be the problem.  To set
-the 'Default Machine Folder' go to the Start menu and enter 'cmd'.  Open the application.  At the prompt enter 
+the 'Default Machine Folder' open a command line terminal (i.e. go to the Start menu and enter 'cmd'.  [Cygwin](../Ansible#installation-for-windows-7) works well for this purpose as well.)  Open the application.  At the prompt enter 
 ```
 'c:\Program Files\Oracle\VirtualBox\VBoxManage.exe setproperty machinefolder C:\VMs'
 ```
@@ -18,7 +18,7 @@ Simple Walkthrough
 ==================
 Now you're ready to create your first Vagrant based project.
 
-1. Open the command line, 'cmd' from the Start menu
+1. Open the command line (i.e. go to the Start menu and enter 'cmd'.  [Cygwin](../Ansible#installation-for-windows-7) works well for this purpose as well.)
 2. Create a directory for your project
 
     ```
