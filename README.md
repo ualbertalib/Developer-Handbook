@@ -69,7 +69,7 @@ Once an application is 'working' it is deployed in dev, test, and prod environme
  * software installed from RPM
  * installed using configuration management software
  * may point to services (like MySQL) on external test server
- * primary purpose is to run a batery of tests for acceptance and performance
+ * primary purpose is to run a battery of tests for acceptance and performance
 
 ####Production Environments
  * developers do not have sudo privileges
