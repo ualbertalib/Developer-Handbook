@@ -19,7 +19,9 @@ SSH Keys
 --------
 The Secure Shell (SSH) Protocol is a protocol for secure remote login and other secure network services over an insecure network. [[The Secure Shell (SSH) Protocol Architecture](http://www.ietf.org/rfc/rfc4251.txt)]
 
-The recommended way to authenticate and communicate over ssh is through public/private key pairs. Your share your public key with a server and it is stored in .ssh/authorized_keys.  Keep your private key secret and on your desktop machine (in your ~/.ssh/ directory).
+The recommended way to authenticate and communicate over ssh is through public/private key pairs. You share your public key with a server and it is stored in .ssh/authorized_keys.  Keep your private key secret and on your desktop machine (in your ~/.ssh/ directory).
+
+These keys can be created with Linux command-line tools. In a Windows environment, they can be created using the equivalent tools in [[Cygwin](https://www.cygwin.com/)], or [[using PuttyGen](http://www.rackspace.com/knowledge_center/article/generating-rsa-keys-with-ssh-puttygen)].
 
 To create your keys: 
 
@@ -46,6 +48,8 @@ To use these as credentials:
   ```
   ssh-add -l
   ```
+
+In Windows you can [[use Pageant](http://the.earth.li/~sgtatham/putty/0.60/htmldoc/Chapter9.html#pageant)] to load your key for use by Putty.
 
 DevOps
 ------
