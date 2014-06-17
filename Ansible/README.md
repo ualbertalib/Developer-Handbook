@@ -59,8 +59,9 @@ WARNING!!! Anisble does not technically support Windows as a control machine.  H
     export PYTHONPATH=$ANSIBLE/lib  
     export ANSIBLE_LIBRARY=$ANSIBLE/library  
     ```
-6. Either close and reopen Cygwin or ```source ~/.bash_profile``` to pick up the changes you just made
-7. Test to see that ansible is working
+6. Ansible relies on SSH for authentication and communication with the target machine(s).  There is no magic, if you don't have access to a machine there isn't any good reason for you to be running playbooks on it.  Follow these instructions to setup a [SSH keypair](../README.md#ssh-keys).
+7. Either close and reopen Cygwin or ```source ~/.bash_profile``` to pick up the changes you just made
+8. Test to see that ansible is working
 
      ```
      ansible --version  
