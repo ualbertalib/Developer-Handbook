@@ -119,6 +119,7 @@ When a bug or feature is identified which requires a change.
 TODO
 ----
 * Patterns
+* GitHub - Peter's working on this in branch pb-github
 * Code Style
 * Testing
 * Continuous Integration
