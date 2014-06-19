@@ -1,0 +1,8 @@
+---
+
+  - name: get packages
+    yum: pkg={{ item }} state=latest
+    with_items:
+      - php
+      - php-mysql
+    notify: restart httpd
