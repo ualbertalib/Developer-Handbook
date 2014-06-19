@@ -49,7 +49,7 @@ vagrant up
 
 ###3. Install mysql php application by hand ([Solutions](solutions/3))
 
-  We're going to make this a little more complicated and introduce a MySQL backing store. You can start from a fresh VM or use your playbook -- your choice.
+  We're going to make this a little more complicated and introduce a MySQL backing store. Deploy the new version: [guestbook-2.0.tar.gz](https://github.com/pgwillia/guestbook/releases/tag/v2.0). You can start from a fresh VM or use your playbook -- your choice.
 
   Success is when you can visit http://hostname/guestbook.php and interact with the application.  Bonus marks for modifications to the test suite from 1. 
 
