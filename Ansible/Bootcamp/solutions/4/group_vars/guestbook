@@ -1,0 +1,7 @@
+---
+# Global Vars for Guestbook
+
+db_host: localhost
+db_user: guestbook
+db_password: iH[D-TA8i{7
+db_name: genericwebsite
