@@ -17,7 +17,7 @@ WARNING!!! Anisble does not technically support Windows as a control machine.  H
  * openssl
  * openssl-devel
 
- Cygwin for 64-bit versions of Windows has been shown to fail without any output.  If you experience this problem try 32-bit Cygwin.
+ Ansbile installed in Cygwin for 64-bit versions of Windows has been shown to fail without any output.  If you experience this problem try 32-bit Cygwin.
 2. Download and install PyYAML and Jinja2 separately. I couldn't find them in Cygwin's installer: 
  1. Open Cygwin
  2. Download PyYAML:
