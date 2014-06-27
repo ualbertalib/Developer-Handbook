@@ -21,7 +21,7 @@ The Secure Shell (SSH) Protocol is a protocol for secure remote login and other 
 
 The recommended way to authenticate and communicate over ssh is through public/private key pairs. You share your public key with a server and it is stored in .ssh/authorized_keys.  Keep your private key secret and on your desktop machine (in your ~/.ssh/ directory).
 
-These keys can be created with Linux command-line tools. In a Windows environment, they can be created using the equivalent tools in [[Cygwin](https://www.cygwin.com/)], or [[using PuttyGen](http://www.rackspace.com/knowledge_center/article/generating-rsa-keys-with-ssh-puttygen)].
+These keys can be created with Linux command-line tools. In a Windows environment, they can be created using the equivalent tools in [[Cygwin](https://www.cygwin.com/)].  If you have already created a key pair with PuttyGen and shared it with the sysadmins, you can convert it to the necessary OpenSSH-style keys by following [these instructions](http://stackoverflow.com/questions/2224066/how-to-convert-ssh-keypairs-generated-using-puttygenwindows-into-key-pairs-use#answer-2224204).
 
 To create your keys: 
 
@@ -36,10 +36,11 @@ id_rsa id_rsa.pub
 
 To use these as credentials:
 
-1. share your public key (**id_rsa.pub**) with your friendly neighborhood systems administrator:
-2. before attempting to login for the first time in a session (hint add it to your bash profile)
+1. share your public key (**id_rsa.pub**) with your friendly neighborhood systems administrator
+2. before attempting to login for the first time in a session, you must start the ssh agent and add your key (hint add this to your bash profile):
  
   ```
+  eval `ssh-agent -s`
   ssh-add
   ``` 
 
