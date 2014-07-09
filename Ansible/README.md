@@ -74,3 +74,22 @@ Alternately you can use a linux VM as your control machine to run Ansible playbo
 Installation for Linux
 ======================
 Install 'ansible' from your favourite package manager.  Really, that's it!
+
+Known Issues
+============
+Occassionally you'll see
+```
+GATHERING FACTS ***************************************************************
+fatal: [192.168.33.11] => SSH encountered an unknown error during the connection. We recommend you re-run the command using -vvvv, which will enable SSH debugging output to help diagnose the issue
+```
+or something like
+```
+fatal: [192.168.33.11] => failed to transfer file to /root/.ansible/tmp/ansible-tmp-1404920107.71-206926197576774/yum:
+
+mm_send_fd: sendmsg(2): Broken pipe
+mux_client_request_session: send fds failed
+Connection closed
+```
+This appears to be temporary so just try again.  If you know what causes this issue please update.
+
+
