@@ -77,6 +77,7 @@ Install 'ansible' from your favourite package manager.  Really, that's it!
 
 Known Issues
 ============
+## 1. Connection closes early
 Occassionally you'll see
 ```
 GATHERING FACTS ***************************************************************
@@ -92,4 +93,11 @@ Connection closed
 ```
 This appears to be temporary so just try again.  If you know what causes this issue please update.
 
-
+## 2. Timing vulnerabilities when used with pycrypto
+If you run Ansible from a Centos 6.5 control you may see
+```
+[WARNING]: The version of gmp you have installed has a known issue regarding
+==> dmp: timing vulnerabilities when used with pycrypto. If possible, you should update
+==> dmp: it (ie. yum update gmp).
+```
+At the time of writing the latest gmp available on Centos 6.5 does not solve the problem.
