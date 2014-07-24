@@ -1,0 +1,3 @@
+#  To Run:
+
+ansible-playbook -i dev guestbook.yml

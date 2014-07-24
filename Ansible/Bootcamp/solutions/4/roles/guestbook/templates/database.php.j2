@@ -1,0 +1,10 @@
+<?php
+$dbHost = "{{ db_host }}";
+$dbUser = "{{ db_user }}";
+$dbPass = "{{ db_password }}";
+$dbDatabase = "{{ db_name }}";
+
+$connection = mysql_connect($dbHost, $dbUser, $dbPass) or die("Could not connect");
+mysql_select_db($dbDatabase, $connection) or die ("Could not select db");
+
+?>

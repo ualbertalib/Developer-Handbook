@@ -1,0 +1,23 @@
+---
+
+  - name: get guestbook application
+    get_url: url=https://github.com/pgwillia/guestbook/archive/v2.0.tar.gz dest=/tmp/guestbook-2.0.tar.gz
+  - name: unpack guestbook application
+    unarchive: src=/tmp/guestbook-2.0.tar.gz dest=/var/www/sites/ copy=no
+  - name: copy database.php template
+    template: src=database.php.j2 dest=/var/www/sites/guestbook-2.0/database.php
+  - name: link application to httpd html 
+    file: state=link src=/var/www/sites/guestbook-2.0/{{ item }} dest=/var/www/html/{{ item }}
+    with_items:
+      - add_entry.php
+      - database.php
+      - get_entries.php
+      - guestbook.php
+
+  - name: create db
+    mysql_db: state=present name=genericwebsite
+  - name: import db
+    mysql_db: state=import name={{ db_name }} target=/var/www/sites/guestbook-2.0/schema.sql 
+  - name: create user
+    mysql_user: state=present name={{ db_user }} password={{ db_password }} priv={{ db_name }}.*:INSERT,SELECT
+

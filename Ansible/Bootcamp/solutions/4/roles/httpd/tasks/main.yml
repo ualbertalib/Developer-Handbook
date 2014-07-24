@@ -1,0 +1,11 @@
+---
+
+  - name: get packages
+    yum: pkg={{ item }} state=latest
+    with_items:
+      - httpd
+
+  - name: create /var/www/sites
+    file: state=directory path=/var/www/sites owner=apache group=apache 
+  - name: start httpd
+    service: name=httpd state=started enabled=yes

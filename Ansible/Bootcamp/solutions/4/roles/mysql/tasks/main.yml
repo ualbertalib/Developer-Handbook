@@ -1,0 +1,10 @@
+---
+
+  - name: get packages
+    yum: pkg={{ item }} state=latest
+    with_items:
+      - mysql-server
+      - MySQL-python
+
+  - name: start mysqld
+    service: name=mysqld state=started enabled=yes

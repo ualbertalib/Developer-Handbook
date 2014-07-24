@@ -1,0 +1,13 @@
+---
+# solutions/4: How to install the guestbook application with MySQL database.
+# 2014 June 18
+
+
+- name: install guestbook play
+  hosts: guestbook
+  user: root
+  roles:
+    - httpd
+    - php
+    - mysql
+    - guestbook

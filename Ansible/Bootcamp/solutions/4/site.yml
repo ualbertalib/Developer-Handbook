@@ -1,0 +1,5 @@
+---
+# file site.yml
+# Apply this with: ansible-playbook site.yml -i dev
+
+  -include: guestbook.yml

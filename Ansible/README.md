@@ -1,11 +1,10 @@
-Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as 
-continuous deployments or zero downtime rolling updates.
+Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.
 
 Installation for Windows 7
 ==========================
 WARNING!!! Anisble does not technically support Windows as a control machine.  Here is the best workaround I've found:
 
-1. Download and install Cygwin [https://cygwin.com/install.html].  Cygwin is a brilliant command line interface for Windows.  It gives you access to all Windows utilities on your PATH and provides some missing useful linux tools compiled for Windows.  If you're familar with the Linux command line then you will feel right at home with this on your desktop. You will need at least the following packages:
+1. Download and install **Cygwin for 32-bit versions of Windows** [https://cygwin.com/install.html]. Cygwin is a brilliant command line interface for Windows.  It gives you access to all Windows utilities on your PATH and provides some missing useful linux tools compiled for Windows.  If you're familar with the Linux command line then you will feel right at home with this on your desktop. You will need at least the following packages:
  * curl
  * python (2.7.x)
  * python-crypto
@@ -17,6 +16,8 @@ WARNING!!! Anisble does not technically support Windows as a control machine.  H
  * openssh
  * openssl
  * openssl-devel
+
+ Ansbile installed in Cygwin for 64-bit versions of Windows has been shown to fail without any output.  If you experience this problem try 32-bit Cygwin.
 2. Download and install PyYAML and Jinja2 separately. I couldn't find them in Cygwin's installer: 
  1. Open Cygwin
  2. Download PyYAML:
@@ -73,3 +74,30 @@ Alternately you can use a linux VM as your control machine to run Ansible playbo
 Installation for Linux
 ======================
 Install 'ansible' from your favourite package manager.  Really, that's it!
+
+Known Issues
+============
+## 1. Connection closes early
+Occassionally you'll see
+```
+GATHERING FACTS ***************************************************************
+fatal: [192.168.33.11] => SSH encountered an unknown error during the connection. We recommend you re-run the command using -vvvv, which will enable SSH debugging output to help diagnose the issue
+```
+or something like
+```
+fatal: [192.168.33.11] => failed to transfer file to /root/.ansible/tmp/ansible-tmp-1404920107.71-206926197576774/yum:
+
+mm_send_fd: sendmsg(2): Broken pipe
+mux_client_request_session: send fds failed
+Connection closed
+```
+This appears to be temporary so just try again.  If you know what causes this issue please update.
+
+## 2. Timing vulnerabilities when used with pycrypto
+If you run Ansible from a Centos 6.5 control you may see
+```
+[WARNING]: The version of gmp you have installed has a known issue regarding
+==> dmp: timing vulnerabilities when used with pycrypto. If possible, you should update
+==> dmp: it (ie. yum update gmp).
+```
+At the time of writing the latest gmp available on Centos 6.5 does not solve the problem.
