@@ -13,7 +13,7 @@ Version control is important to our operation
  * backup
 
 Github https://github.com/ualbertalib  
-Mercurial https://code.library.ualberta.ca/hg/ -- requires Windows credentials
+Mercurial https://code.library.ualberta.ca/hg/ -- requires Network login / Windows credentials
 
 SSH Keys
 --------
