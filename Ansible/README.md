@@ -46,10 +46,10 @@ WARNING!!! Anisble does not technically support Windows as a control machine.  H
     ```
     git clone https://github.com/ansible/ansible /opt/ansible  
     ```
-4. Checkout v1.6.2 (the latest available June 2014 in Centos6.5 repo)
+4. Checkout v1.6.10 (the latest available late July 2014 in Ansible repo) *note* Ansible version<=1.6.6 has an arbitrary code execution vulnerability. Details [here](http://www.ocert.org/advisories/ocert-2014-004.html)
      
     ```
-    cd /opt/ansible && git checkout v1.6.2  
+    cd /opt/ansible && git checkout v1.6.10 
     ```
 5. Add the following lines into your Cygwin .bash_profile.  Use ```vim ~/.bash_profile``` or edit C:\cygwin\home\username\.bash_profile in your favourite editor.
 
