@@ -66,3 +66,4 @@ to be worked out over time (we can imagine various scenarios).
 * We maintain links between commits and issues to enable the history of changes and decisions to be traced
 * We use tags to manage the release cycle
 
+
