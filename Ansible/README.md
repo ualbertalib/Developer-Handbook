@@ -82,8 +82,9 @@ Ansible also has built-in support for logging. Add the following lines to your a
 ```
 [defaults] 
 log_path=/path/to/logfile
-Ansible will look in several places for the config file:
 ```
+Ansible will look in several places for the config file:
+
 
 * ansible.cfg in the current directory where you ran ansible-playbook
 * ~/.ansible.cfg
