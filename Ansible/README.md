@@ -102,7 +102,8 @@ Ansible will look in several places for the config file:
 * ansible.cfg in the current directory where you ran ansible-playbook
 * ~/.ansible.cfg
 * /etc/ansible/ansible.cfg
-Alternately you can set this in your SSH config ~/.ssh/config by adding to the file:
+
+Alternately you can set this in your SSH config ~/.ssh/config by adding:
 ```
 ControlMaster no
 ```
