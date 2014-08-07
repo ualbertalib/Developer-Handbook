@@ -103,11 +103,6 @@ Ansible will look in several places for the config file:
 * ~/.ansible.cfg
 * /etc/ansible/ansible.cfg
 
-Alternately you can set this in your SSH config ~/.ssh/config by adding:
-```
-ControlMaster no
-```
-
 ## 2. Timing vulnerabilities when used with pycrypto
 If you run Ansible from a Centos 6.5 control you may see
 ```
