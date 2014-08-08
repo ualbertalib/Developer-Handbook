@@ -75,6 +75,21 @@ Installation for Linux
 ======================
 Install 'ansible' from your favourite package manager.  Really, that's it!
 
+Configuring Logging
+===================
+Ansible also has built-in support for logging. Add the following lines to your ansible configuration file:
+
+```
+[defaults] 
+log_path=/path/to/logfile
+```
+Ansible will look in several places for the config file:
+
+
+* ansible.cfg in the current directory where you ran ansible-playbook
+* ~/.ansible.cfg
+* /etc/ansible/ansible.cfg
+
 Known Issues
 ============
 ## 1. Connection closes early
