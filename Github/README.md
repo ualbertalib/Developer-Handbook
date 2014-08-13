@@ -37,27 +37,42 @@ feature into their own codebase.
 We need to figure out good practices around GitHub notifications, so
 that we can filter out irrelevant information.
 
+##Commit early and often to feature branches
+
+We commit early so that our work is available to our peers for use and review as soon as possible.  We commit often because our work is organized into atomic units of incremental change.
+
 ##Use meaningful commit messages
+
+Commit messages document the changes that we are introducing to the code base.  They should use present tense to describe why not what and include enough detail that someone unfamiliar to the project understands our change.
+
 ##Squash commits into meaningful units
 
-It is good practice to squash commits when merging from a feature branch
-into a development branch, but there is no hard rule: some features may
-best be kept as a series of commits.
+It is good practice to squash commits when merging from a feature branch into a development branch, but there is no hard rule: some features may best be kept as a series of commits.
 
-Squashing before pushing prevents problems. Pushing unsquashed commits
-to a feature branch is safe unless someone branches from a commit that
-subsequently gets squashed: so the working agreement has to be that
-feature branches are not intended to be the source of other branches
-(ie. branch from master or development branches).
+Squashing before pushing prevents problems. Pushing unsquashed commits to a feature branch is safe unless someone branches from a commit that subsequently gets squashed: so the working agreement has to be that feature branches are not intended to be the source of other branches (ie. branch from master or development branches).
 
 Use "amend" and "-p" (patch) when appropriate.
 
-How two or more developers can best work on a single feature will have
-to be worked out over time (we can imagine various scenarios).
+How two or more developers can best work on a single feature will have to be worked out over time (we can imagine various scenarios).
  
-##When we use other people's code, we fork their repo and push changes back whenever possible
 ##We use GitHub issues to manage code changes
-##We maintain links between commits and issues to enable the history of changes and decisions to be traced
-##We use tags to manage the release cycle
 
+GitHub issues allow us to communicate ideas and solutions in diagrams and plain language before and during development of features. This is a useful feature to solicit feedback from the team at all stages of development.
 
+We maintain links between commits and issues to enable the history of changes and decisions to be traced.
+
+##We, the Team, are responsible for the health of the code base
+
+The entire team is responsible for the health of the code in version control.  That means that if we notice something is broken, out of date or wrong it is our responsibility to fix it or at least ensure that it is tracked by submitting an issue. Communication is very important. 
+
+We will prevent developing an unhealthy code base by not knowingly committing and pushing broken code.  We should be running the accompanying test suite before pushing our changes to check for regresssions.  We should be writing tests for any functionality that we add. 
+
+A continuous integration server like [Jenkins](http://cardiff.library.ualberta.ca/) could be a hub to monitor the health of the code base as each commit or merge is made.
+
+##We use tags to denote the end of a release cycle
+
+Our current thinking is that we will use Scrum and have two week Sprints.  Features completed during the sprint are merged to development and then master via pull requests.  The accepted PRs will be demoed at the sprint review. The decision to tag is the team’s, at the end of the sprint.
+
+##When we use other people's code, we fork their repo and push changes back whenever possible
+
+We acknowledge that we get further faster and longer by joining communities with similar interests. We will fork their code but stay in communication about issues and contribute upstream new features and bug fixes that are useful to the community whenever possible.
