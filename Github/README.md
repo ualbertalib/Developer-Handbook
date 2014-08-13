@@ -20,17 +20,11 @@ Tools
 
 Working Principles
 =========
-* Branch frequently; most branches are short-lived
+##Branch frequently; most branches are short-lived
 
-A normal repository will have a "master" branch, a "development" branch,
-and multiple short-lived "feature" branches.
-Developers work on feature branches, commiting as often as they like.
+A normal repository will have a "master" branch, a "development" branch, and multiple short-lived "feature" branches. Developers work on feature branches, commiting as often as they like.
 
-When features are completed, they are merged into the development
-branch with a pull request (PR). When it is time to release a version of the software, the
-development branch is merged into the master branch using a PR. PRs
-allow for another pair of eyes on a merge, without requiring a single
-authoritative gatekeeper.
+When features are completed, they are merged into the development branch with a pull request (PR). When it is time to release a version of the software, the development branch is merged into the master branch using a PR. PRs allow for another pair of eyes on a merge, without requiring a single authoritative gatekeeper.
 
 When merging from feature to development, commits *can* be squashed (but
 don't have to be). When merging from development into master, commits
@@ -43,8 +37,8 @@ feature into their own codebase.
 We need to figure out good practices around GitHub notifications, so
 that we can filter out irrelevant information.
 
-* Use meaningful commit messages
-* Squash commits into meaningful units
+##Use meaningful commit messages
+##Squash commits into meaningful units
 
 It is good practice to squash commits when merging from a feature branch
 into a development branch, but there is no hard rule: some features may
@@ -61,9 +55,9 @@ Use "amend" and "-p" (patch) when appropriate.
 How two or more developers can best work on a single feature will have
 to be worked out over time (we can imagine various scenarios).
  
-* When we use other people's code, we fork their repo and push changes back whenever possible
-* We use GitHub issues to manage code changes
-* We maintain links between commits and issues to enable the history of changes and decisions to be traced
-* We use tags to manage the release cycle
+##When we use other people's code, we fork their repo and push changes back whenever possible
+##We use GitHub issues to manage code changes
+##We maintain links between commits and issues to enable the history of changes and decisions to be traced
+##We use tags to manage the release cycle
 
 
