@@ -117,6 +117,17 @@ When a bug or feature is identified which requires a change.
 
 **Writing and running [Ansible](Ansible/README.md) playbooks is the recommended practice for deployment of applications.**
 
+RAILS Resources
+---------------
+* [Getting Started](http://guides.rubyonrails.org/getting_started.html)
+* [Gem writing guidelines](http://guides.rubygems.org/make-your-own-gem/)
+* [Rails Engines](http://guides.rubyonrails.org/engines.html)
+* [Rails Command Line](http://guides.rubyonrails.org/command_line.html)
+* [Rails Configuration](http://guides.rubyonrails.org/configuring.html)
+* [ActiveRecord Validations](http://guides.rubyonrails.org/active_record_validations.html)
+* [Routing](http://guides.rubyonrails.org/routing.html)
+* [Michael Hartl's Rails Tutorial](https://www.railstutorial.org/book)
+
 TODO
 ----
 * Patterns
