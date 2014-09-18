@@ -3,6 +3,15 @@ Developer-Handbook
 
 Single source of documentation for the University of Alberta Libraries developers common tools and practices
 
+* [Version Control](#version-control)
+  * [Github](Github/README.md)  
+* [SSH Keys](#ssh-keys)
+* [DevOps](#devops)
+  * [Vagrant](Vagrant/README.md)
+* [Configuration Management](#configuration-management)
+  * [Ansible](Ansible/README.md)
+* [Rails](Rails/README.md)
+
 Version Control
 ---------------
 Version control is important to our operation
