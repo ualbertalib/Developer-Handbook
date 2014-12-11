@@ -44,5 +44,24 @@ Now you're ready to create your first Vagrant based project.
     ```
     vagrant ssh
     ```
+6. When you're done suspend the VM if you want to come back to it's state later ```vagrant suspend``` or destroy the VM if you never want to see this incarnation ever again ```vagrant destroy```  When you want the VM again ```vagrant up```
+
+Other things to know
+====================
+* If you turn off your computer without suspending your Vagrant machines, that's like a hard poweroff of the VM and state may be lost.
+* ```vagrant global-status --prune``` will show you which vagrant boxes are currently known and their state
+* ```vagrant box list``` will show you a list of the base boxes that are available on your local machine
+* VBoxManage is the command line tool that comes with VirtualBox (C:\Program Files\Oracle\Virtualbox\VBoxManage.exe)
+* ```VBoxManage list vms``` and ```VboxManage list runningvms``` are also useful for seeing the state of your machines
+* In a worst case scenario and a VM is inaccessible 
+```
+VBoxManage list vms
+``` 
+```
+VBoxManage controlvm {uuid} poweroff
+```
+```
+VBoxManage unregistervm {uuid} --delete
+```
 
 More information can be found at the Vagrant website [http://docs.vagrantup.com/v2/]
