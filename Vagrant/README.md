@@ -48,20 +48,41 @@ Now you're ready to create your first Vagrant based project.
 
 Other things to know
 ====================
-* If you turn off your computer without suspending your Vagrant machines, that's like a hard poweroff of the VM and state may be lost.
-* ```vagrant global-status --prune``` will show you which vagrant boxes are currently known and their state
-* ```vagrant box list``` will show you a list of the base boxes that are available on your local machine
-* VBoxManage is the command line tool that comes with VirtualBox (C:\Program Files\Oracle\Virtualbox\VBoxManage.exe)
-* ```VBoxManage list vms``` and ```VboxManage list runningvms``` are also useful for seeing the state of your machines
-* In a worst case scenario and a VM is inaccessible 
-```
-VBoxManage list vms
-``` 
-```
-VBoxManage controlvm {uuid} poweroff
-```
-```
-VBoxManage unregistervm {uuid} --delete
-```
+1. If you turn off your computer without suspending your Vagrant machines, that's like a hard poweroff of the VM and state may be lost.
+ * ```vagrant global-status --prune``` will show you which vagrant boxes are currently known and their state
+ * ```vagrant box list``` will show you a list of the base boxes that are available on your local machine
+ * VBoxManage is the command line tool that comes with VirtualBox (C:\Program Files\Oracle\Virtualbox\VBoxManage.exe)
+ * ```VBoxManage list vms``` and ```VboxManage list runningvms``` are also useful for seeing the state of your machines
+ * In a worst case scenario and a VM is inaccessible 
+ ```
+ VBoxManage list vms
+ ``` 
+ ```
+ VBoxManage controlvm {uuid} poweroff
+ ```
+ ```
+ VBoxManage unregistervm {uuid} --delete
+ ```
 
-More information can be found at the Vagrant website [http://docs.vagrantup.com/v2/]
+ More information can be found at the Vagrant website [http://docs.vagrantup.com/v2/]
+
+2. Pay attention to vagrant box versions.  It's useful to always have the latest
+ ```
+ ==> dmp: Checking if box 'ual/centos6.5' is up to date...
+ ==> dmp: A newer version of the box 'ual/centos6.5' is available! You currently
+ ==> dmp: have version '0.1.0'. The latest is version '0.5.0'. Run
+ ==> dmp: `vagrant box update` to update.
+ ```
+ If 'vagrant box update' doesn't work for you try
+ ```
+ vagrant box remove 'ual/centos6.5'
+ vagrant up dmp # a good Vagrantfile will have the info about the base box included
+ ```
+
+3. You can pass through files from the vm to the project directory on your desktop via the ```/vagrant``` directory on the vm. Alternately you can explicitly set shared folders:
+ ```
+ config.vm.synced_folder "./", "/etc/ansible",
+     owner: "root",
+     group: "root",
+     mount_options: ["dmode=775,fmode=664"]
+ ```
