@@ -60,7 +60,7 @@ WARNING!!! Anisble does not technically support Windows as a control machine.  H
     export PYTHONPATH=$ANSIBLE/lib  
     export ANSIBLE_LIBRARY=$ANSIBLE/library  
     ```
-6. Ansible relies on SSH for authentication and communication with the target machine(s).  There is no magic, if you don't have access to a machine there isn't any good reason for you to be running playbooks on it.  Follow these instructions to setup a [SSH keypair](../README.md#ssh-keys).
+6. Ansible relies on SSH for authentication and communication with the target machine(s).  There is no magic, if you don't have access to a machine there isn't any good reason for you to be running playbooks on it.  Follow these instructions to setup a [SSH keypair](../README.md#ssh-keys). Follow these instructions to disable buggy [OpenSSH ControlMaster](README.md#1-connection-closes-early)
 7. Either close and reopen Cygwin or ```source ~/.bash_profile``` to pick up the changes you just made
 8. Test to see that ansible is working
 
@@ -106,7 +106,17 @@ mm_send_fd: sendmsg(2): Broken pipe
 mux_client_request_session: send fds failed
 Connection closed
 ```
-This appears to be temporary so just try again.  If you know what causes this issue please update.
+This appears to be temporary so a naive workaround is to just try again.  If you experience this continuously with Cygwin it seems to be caused by a [known issue with OpenSSH on Windows](https://bugzilla.mindrot.org/show_bug.cgi?id=1278).
+
+The solution is to turn off the ControlMaster in ssh.  You can set that in your ansible configuration file:
+```
+[ssh_connection]
+ssh_args = -o ControlMaster=no
+```
+Ansible will look in several places for the config file:
+* ansible.cfg in the current directory where you ran ansible-playbook
+* ~/.ansible.cfg
+* /etc/ansible/ansible.cfg
 
 ## 2. Timing vulnerabilities when used with pycrypto
 If you run Ansible from a Centos 6.5 control you may see
