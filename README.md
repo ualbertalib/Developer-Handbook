@@ -3,6 +3,15 @@ Developer-Handbook
 
 Single source of documentation for the University of Alberta Libraries developers common tools and practices
 
+* [Version Control](#version-control)
+  * [Github](Github/README.md)  
+* [SSH Keys](#ssh-keys)
+* [DevOps](#devops)
+  * [Vagrant](Vagrant/README.md)
+* [Configuration Management](#configuration-management)
+  * [Ansible](Ansible/README.md)
+* [Rails](Rails/README.md)
+
 Version Control
 ---------------
 Version control is important to our operation
@@ -116,17 +125,6 @@ When a bug or feature is identified which requires a change.
 11. Deploy/update component in 'prod' environment
 
 **Writing and running [Ansible](Ansible/README.md) playbooks is the recommended practice for deployment of applications.**
-
-RAILS Resources
----------------
-* [Getting Started](http://guides.rubyonrails.org/getting_started.html)
-* [Gem writing guidelines](http://guides.rubygems.org/make-your-own-gem/)
-* [Rails Engines](http://guides.rubyonrails.org/engines.html)
-* [Rails Command Line](http://guides.rubyonrails.org/command_line.html)
-* [Rails Configuration](http://guides.rubyonrails.org/configuring.html)
-* [ActiveRecord Validations](http://guides.rubyonrails.org/active_record_validations.html)
-* [Routing](http://guides.rubyonrails.org/routing.html)
-* [Michael Hartl's Rails Tutorial](https://www.railstutorial.org/book)
 
 TODO
 ----
