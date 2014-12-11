@@ -126,3 +126,9 @@ If you run Ansible from a Centos 6.5 control you may see
 ==> dmp: it (ie. yum update gmp).
 ```
 At the time of writing the latest gmp available on Centos 6.5 does not solve the problem.
+
+## 3. No such file or directory: '/etc/ansible/.vault_pass.txt'
+To protect sensitive information we're putting into version control, like passwords and private keys, we're using ansible-vault to encrypt these files.  In order to de-crypt these files when you run the playbook you'll need to know the passphrase.  It can be found in the password safe called 'master_ansible' on //libroot/ITS_Share/Emergency_Prep/pwsafe.  For convenience, many of us put this password in a file our ansible directory as .vault_pass.txt.
+
+## 4.  REMOTE HOST IDENTIFICATION HAS CHANGED!
+Rebuilding or updating a vagrant box may change the key used to identify the server.  Remove the line in ~/.ssh/known_hosts that identifies the hostname/ip of the vm you're working with.  Then when it asks if you want to add this server to known hosts indicate your acceptance.
