@@ -25,6 +25,7 @@ Developing HydraNorth on a Vagrant VM with the Ansible playbook applied we're fi
 * stash playbook changes ```git stash```
 * checkout existing ```git checkout <branchname>``` or new ```git branch -b <branchname>``` branch you want to work on 
 * apply stashed changes ```git stash apply```
+* mark files whose changes are to be ignored ```git update-index --assume-unchanged path/to/file``` (this prevents template files that have been modified by Ansible to include passwords from being accidentally committed)
 
 Working Principles
 =========
