@@ -18,6 +18,14 @@ Tools
 * GitHub for Windows
 * GitHub for Mac
 
+Common Tips
+===========
+Developing HydraNorth on a Vagrant VM with the Ansible playbook applied we're finding we need a workaround in order to checkout branches while maintaining config mangement values
+* ignore permissions ```git config core.fileMode false```
+* stash playbook changes ```git stash```
+* checkout existing ```git checkout <branchname>``` or new ```git branch -b <branchname>``` branch you want to work on 
+* apply stashed changes ```git stash apply```
+
 Working Principles
 =========
 ##Branch frequently; most branches are short-lived
