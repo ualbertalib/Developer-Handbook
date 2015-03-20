@@ -20,6 +20,7 @@ Rails Resources
 
 Debugging Rails
 ---------------
+consider['byebug'](https://github.com/deivid-rodriguez/byebug). Byebug is a simple to use, feature rich debugger for Ruby 2. It allows you to set breakpoints in your code to debug or investigate. Remember to remove any 'byebug' statements before commiting your code. Use with ```rails server``` to access debugging console.
 
 Consider ['pry'](http://pryrepl.org/).  Pry is a powerful alternative to the standard IRB shell for Ruby. It features syntax highlighting, a flexible plugin architecture, runtime invocation and source and documentation browsing.
 
