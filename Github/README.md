@@ -26,6 +26,14 @@ Developing HydraNorth on a Vagrant VM with the Ansible playbook applied we're fi
 * checkout existing ```git checkout <branchname>``` or new ```git branch -b <branchname>``` branch you want to work on 
 * apply stashed changes ```git stash apply```
 
+Checklist for merging Pull Requests
+===================================
+* do existing tests pass?
+* is it tied to an issue and has a commit that closes that issue?
+* are there tests for new functionality?
+* does it meet the style guide for [ruby](https://github.com/bbatsov/ruby-style-guide) and [rails](https://github.com/bbatsov/rails-style-guide)?
+* does it pass the [opportunistic OWASP checklist](https://www.owasp.org/images/5/58/OWASP_ASVS_Version_2.pdf) for security?
+
 Working Principles
 =========
 ##Branch frequently; most branches are short-lived
