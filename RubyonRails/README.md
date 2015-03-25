@@ -1,3 +1,10 @@
+Ruby Resources
+--------------
+
+* on your system with Ruby installed consult ```ri --help```
+* in your browser consult [ruby-lang.org](https://www.ruby-lang.org/en/documentation/)
+* for a [style guide](https://github.com/bbatsov/ruby-style-guide)
+
 Rails Resources
 ---------------
 * [Getting Started](http://guides.rubyonrails.org/getting_started.html)
@@ -9,9 +16,11 @@ Rails Resources
 * [Routing](http://guides.rubyonrails.org/routing.html)
 * [Michael Hartl's Rails Tutorial](https://www.railstutorial.org/book)
 * [Rails 4 Way](http://proquest.safaribooksonline.com/book/programming/ruby/9780133487954/firstchapter#X2ludGVybmFsX0h0bWxWaWV3P3htbGlkPTk3ODAxMzM0ODc5NTQlMkZwcmVmMDZfaHRtbCZxdWVyeT1CT09L)
+* [Style Guide](https://github.com/bbatsov/rails-style-guide)
 
 Debugging Rails
 ---------------
+consider['byebug'](https://github.com/deivid-rodriguez/byebug). Byebug is a simple to use, feature rich debugger for Ruby 2. It allows you to set breakpoints in your code to debug or investigate. Remember to remove any 'byebug' statements before commiting your code. Use with ```rails server``` to access debugging console.
 
 Consider ['pry'](http://pryrepl.org/).  Pry is a powerful alternative to the standard IRB shell for Ruby. It features syntax highlighting, a flexible plugin architecture, runtime invocation and source and documentation browsing.
 
