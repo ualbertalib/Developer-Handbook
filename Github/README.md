@@ -25,6 +25,9 @@ Developing HydraNorth on a Vagrant VM with the Ansible playbook applied we're fi
 * stash playbook changes ```git stash```
 * checkout existing ```git checkout <branchname>``` or new ```git branch -b <branchname>``` branch you want to work on 
 * apply stashed changes ```git stash apply```
+* get latest branches from github ```git fetch```
+* set user name(```git config --global user.name "your name"```) and email(```git config --global user.email your.email```) for new vm  
+* set url for commits ```git remote set-url origin  https://your.login@github.com/ualbertalib/your.repository.git```
 
 Checklist for merging Pull Requests
 ===================================
