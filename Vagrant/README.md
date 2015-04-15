@@ -86,3 +86,58 @@ Other things to know
      group: "root",
      mount_options: ["dmode=775,fmode=664"]
  ```
+ 
+Vagrantizing a box
+==================
+1. Create a vm to redistribute (for example from [kickstart](https://github.com/ualbertalib/vagrant-centos) or an [existing vagrant box](https://github.com/ualbertalib/vagrant-centos/releases) that [you modify](https://github.com/ualbertalib/sufia-ansible-vagrant))
+2. Invoke ```vagrant package [name]```
+3. Test that the vm worked as expected. Do this after package so that testing history and vagrant built ssh credentials don't cause problems later.
+4. Rename package.box which was generated in the package step to something descriptive and put it somewhere that it can be shared
+5. If using vagrant versioning, update the box metadata json file
+
+  ```
+  {
+    "name": "ual/hydranorth",
+    "description": "This box contains ruby 2.1.5, hydranorth (from sufia engine), passenger/httpd, mysql redis, fits, and jetty/solr/fedora.",
+    "versions": [{
+      "version": "0.1.0",
+      "providers": [{
+        "name": "virtualbox",
+        "url": "file:////libroot/ITS_Share/vagrantboxes/hydranorth_centos65-x86_64-20141029.box",
+        "checksum_type": "sha1",
+        "checksum": "c94030f290f8e6d158a91a3ab7022ed73faadd35"
+      }]
+    }, {
+      "version": "2.2.0",
+      "providers": [{
+        "name": "virtualbox",
+        "url": "file:////libroot/ITS_Share/vagrantboxes/hydranorth_centos65-x86_64-20150304.box",
+        "checksum_type": "sha1",
+        "checksum": "b0bfd4b629cc1bc51f4407643fb1cb0877f9d796"
+      }]
+    }]
+  }
+  ```
+  hint: ```openssl dgst -sha1 <filename>``` to generate checksum
+6. Test that there isn't any problems with the vagrant metadata json file and the box itself
+
+  ```
+  vagrant box update ual/hydranorth
+  ```
+  or 
+  ```
+  vagrant box remove ual/hydranorth # because my machine is finicky and won't update
+  vagrant box add ual/hydranorth file:////path/to/vagrant/metadata.json
+  ```
+  and
+  ```
+  vagrant init ual/hydranorth file:////path/to/vagrant/metadata.json # creates a new Vagrantfile with box and box_url, skip if redundant
+  vagrant up # should see vagrant reading metadata.json, recognizing the latest version in that file, and downloading
+  vagrant ssh
+  vagrant destroy
+  ```
+7. Edit CHANGES.txt
+8. Let your collegues know about your useful new box
+  
+  
+ 
