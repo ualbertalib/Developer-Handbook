@@ -63,7 +63,7 @@ In Windows you can [[use Pageant](http://the.earth.li/~sgtatham/putty/0.60/htmld
 
 DevOps
 ------
-DevOps means different things to different people.  To use it means Developers and Operations working together (Dev+Ops=DevOps) towards the same goal of putting quality applications in production as efficiently and painlessly as possible.
+DevOps means different things to different people.  To us it means Developers and Operations working together (Dev+Ops=DevOps) towards the same goal of putting quality applications in production as efficiently and painlessly as possible.
 
 ###Dev/Test/Production
 Once an application is 'working' it is deployed in dev, test, and prod environments. This facilitates the hand off between the Developer and Operations, by giving the Developer a production-like environment to build in, a test environment for developers and Operations to collaborate and practice on, and a production environment that is a known quantity to Operations because it's been proven.
