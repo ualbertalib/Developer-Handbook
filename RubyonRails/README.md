@@ -20,7 +20,9 @@ Rails Resources
 
 Debugging Rails
 ---------------
-consider['byebug'](https://github.com/deivid-rodriguez/byebug). Byebug is a simple to use, feature rich debugger for Ruby 2. It allows you to set breakpoints in your code to debug or investigate. Remember to remove any 'byebug' statements before commiting your code. Use with ```rails server``` to access debugging console.
+consider ['byebug'](https://github.com/deivid-rodriguez/byebug). Byebug is a simple to use, feature rich debugger for Ruby 2. It allows you to set breakpoints in your code to debug or investigate. Remember to remove any 'byebug' statements before commiting your code. Use with ```rails server``` to access debugging console.
+
+consider ['method_locator'](https://github.com/ryanlecompte/method_locator). method_locator is a Ruby gem that allows you to easily determine the method lookup path of a particular object / class / module, as well as find all places (represented as UnboundMethod instances) where a callable method is defined on an object. This is very useful in an environment such as Rails where you are unsure where a method may be defined or overridden. Suggestion from Jeremy Friesen at HydraConnect 2015.
 
 Consider ['pry'](http://pryrepl.org/).  Pry is a powerful alternative to the standard IRB shell for Ruby. It features syntax highlighting, a flexible plugin architecture, runtime invocation and source and documentation browsing.
 
@@ -117,3 +119,4 @@ Misc
 * [pry](http://pryrepl.org/)
 * [RailsCast](http://railscasts.com/episodes/280-pry-with-rails)
 * [pry-ecosystem](http://banisterfiend.wordpress.com/2012/02/14/the-pry-ecosystem/)
+* [method_locator](https://github.com/ryanlecompte/method_locator)
