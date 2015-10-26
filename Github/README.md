@@ -29,6 +29,42 @@ Developing HydraNorth on a Vagrant VM with the Ansible playbook applied we're fi
 * set user name(```git config --global user.name "your name"```) and email(```git config --global user.email your.email```) for new vm  
 * set url for commits ```git remote set-url origin  https://your.login@github.com/ualbertalib/your.repository.git```
 
+UnCommon Tips
+=============
+
+Day late, dollar short solution for when you accidentally clobber a branch and need to recover:
+
+When you force pushed, it may have showed you the commit you went from, and the commit you went to. Something like
+
+```5794458...b459f069 master -> master (forced update)```
+
+You can use that first hash to reset master back to where you were a minute ago:
+
+```git reset --hard 5794458```
+
+and then overwrite your bad push with the previous state:
+
+```git push --force origin master```
+
+If for some reason you can't see or figure out what the "good" hash you clobbered was, you can list the previous few states of master with:
+
+```git reflog show remotes/origin/master```
+
+```
+0637bf9  remotes/origin/master@{0}: fetch rewrite: forced-update
+5794458 remotes/origin/master@{1}: pull: fast-forward
+5a71cda remotes/origin/master@{2}: pull: fast-forward
+95a4a0c remotes/origin/master@{3}: pull: fast-forward
+0687bd8 remotes/origin/master@{4}: pull: fast-forward
+84171ad 
+```
+
+And then the same process, using the last good hash
+```
+git reset --hard 5794458 (or, use the alias, git reset --hard master@{1} )
+git push --force origin master
+```
+
 Checklist for merging Pull Requests
 ===================================
 * do existing tests pass?
