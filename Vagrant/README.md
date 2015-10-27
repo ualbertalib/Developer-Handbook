@@ -2,8 +2,8 @@ Vagrant is is a tool to create and configure lightweight, reproducible, and port
 
 Installation for Windows 7 (64 bit)
 ============
-1. Install VirtualBox.  The latest as of writing is VirtualBox 5.0.0 and is available from: 
-http://download.virtualbox.org/virtualbox/5.0.0/VirtualBox-5.0.0-101573-Win.exe
+1. Install VirtualBox.  The latest as of writing is VirtualBox 5.0.8 and is available from: 
+http://download.virtualbox.org/virtualbox/5.0.8/VirtualBox-5.0.8-103449-Win.exe
 2. Install Vagrant. The latest as of writing is Vagrant 1.7.4 and is available from: 
 https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4.msi via http://www.vagrantup.com/downloads.html
 3. The 'Default Machine Folder' for Virtualbox is 'VirtualBox VMs' in your user directory.  Since, at our place of work,
