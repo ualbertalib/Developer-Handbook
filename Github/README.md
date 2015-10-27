@@ -32,7 +32,7 @@ Developing HydraNorth on a Vagrant VM with the Ansible playbook applied we're fi
 UnCommon Tips
 =============
 
-Day late, dollar short solution for when you accidentally clobber a branch and need to recover:
+Day late, dollar short solution for when you accidentally clobber a branch with an ill-advised force push, and need to recover:
 
 When you force pushed, it may have showed you the commit you went from, and the commit you went to. Something like
 
