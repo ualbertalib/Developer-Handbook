@@ -85,7 +85,26 @@ Other things to know
  ```
  vagrant box remove 'ual/centos6.5'
  vagrant up dmp # a good Vagrantfile will have the info about the base box included
+ 
  ```
+ If 'vagrant box update' or 'vagrant up' gives you following error message:
+ ```
+The "metadata.json" file for the box 'ual/XXXXX' was not found.
+Boxes require this file in order for Vagrant to determine the
+provider it was made for. If you made the box, please add a
+"metadata.json" file to it. If someone else made the box, please
+notify the box creator that the box is corrupt. Documentation for
+box file format can be found at the URL below:
+
+http://docs.vagrantup.com/v2/boxes/format.html
+
+```
+try below to refer to the json versioning file:
+```
+vagrant box add ual/hydranorth //libroot/ITS_Share/vagrantboxes/XXXXX.json
+```
+
+
 
 3. You can pass through files from the vm to the project directory on your desktop via the ```/vagrant``` directory on the vm. Alternately you can explicitly set shared folders:
  ```
