@@ -14,6 +14,14 @@ the 'Default Machine Folder' open a command line terminal (i.e. go to the Start 
 'c:\Program Files\Oracle\VirtualBox\VBoxManage.exe setproperty machinefolder C:\VMs'
 ```
 
+Installation for Ubuntu
+====================
+1. Install VirtualBox. The latest as of writing is VirtualBox 5.0.8 and is available from:
+https://www.virtualbox.org/wiki/Linux_Downloads. There are instructions there for adding the source repo to your ```/etc/apt/sources.list```.
+(note: don't install Ubuntu's packaged version, which is 4.3.26)
+2. Install vagrant. The latest in the public repository is 1.7.3. ```sudo apt-get install vagrant```
+
+
 Simple Walkthrough
 ==================
 Now you're ready to create your first Vagrant based project.
