@@ -26,6 +26,8 @@ consider ['method_locator'](https://github.com/ryanlecompte/method_locator). met
 
 Consider ['pry'](http://pryrepl.org/).  Pry is a powerful alternative to the standard IRB shell for Ruby. It features syntax highlighting, a flexible plugin architecture, runtime invocation and source and documentation browsing.
 
+Consider ['better-errors'](https://github.com/charliesome/better_errors). Better Errors replaces the standard Rails error page with a much better and more useful error page.
+
 Add to your Gemfile
 ```
 group :development do
