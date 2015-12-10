@@ -114,6 +114,29 @@ vagrant box add ual/hydranorth //libroot/ITS_Share/vagrantboxes/XXXXX.json
      mount_options: ["dmode=775,fmode=664"]
  ```
  
+ 4. In Ubuntu, to map to ITS_Share and access golden images:
+    1. add the line to the end of the /etc/fstab file with ```sudo vi /etc/fstab```
+
+    ```//libroot/ITS_Share  /libroot/ITS_Share  cifs  credentials=/home/wshi/.smbcredentials,sec=ntlm  0  0```
+    2. create directory for mounting location: /libroot/ITS_Share
+    3. create a smb credential file at /home/username/.smbcredentials, and have the following lines:
+    ```
+    username=$username
+    domain=UALIBRARY
+    password=$password
+    ```
+    remember no additional whitespaces or blank lines other than the three lines above
+
+    4. do a ```sudo mount -a```
+    
+5. In Ubuntu 14.04, sometimes vagrant/VirtualBox gives the following error message:
+    "VirtualBox is complaining that the kernel module is not loaded. Please
+    run `VBoxManage --version` or open the VirtualBox GUI to see the error
+    message which should contain instructions on how to fix this error."
+
+    To fix the error do: ```sudo /etc/init.d/vboxdrv setup```
+    (Reference: https://github.com/lynnaloo/xtuple-vagrant/issues/13)
+    
 Vagrantizing a box
 ==================
 1. Create a vm to redistribute (for example from [kickstart](https://github.com/ualbertalib/vagrant-centos) or an [existing vagrant box](https://github.com/ualbertalib/vagrant-centos/releases) that [you modify](https://github.com/ualbertalib/sufia-ansible-vagrant))
