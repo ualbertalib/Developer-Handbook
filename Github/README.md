@@ -73,6 +73,12 @@ Checklist for merging Pull Requests
 * does it meet the style guide for [ruby](https://github.com/bbatsov/ruby-style-guide) and [rails](https://github.com/bbatsov/rails-style-guide)?
 * does it pass the [opportunistic OWASP checklist](https://www.owasp.org/images/5/58/OWASP_ASVS_Version_2.pdf) for security?
 
+Checklist for cutting a Release
+===============================
+* get the list of commits to master since the previous release: on the list of releases, there is a link under the previous release: "20 commits to master since this release" 
+* in the release notes for the new release, make an entry for each merged pull request in the commit list (those that begin "Merge pull request #830") - use the title of the issue that the PR closed, or a brief descriptive text, and be sure to include the link to the PR
+* create the release tag in this form: "v1.2.3". Follow [semantic tagging](http://semver.org/) principles. 
+
 Working Principles
 =========
 ##Branch frequently; most branches are short-lived
