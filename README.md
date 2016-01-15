@@ -126,6 +126,17 @@ When a bug or feature is identified which requires a change.
 
 **Writing and running [Ansible](Ansible/README.md) playbooks is the recommended practice for deployment of applications.**
 
+Tips for Rspec Tests:
+To allow optimization for test speed:
+* Scope for "before do" and "after do" should be set as :all whenever possible, instead of using :each. Otherwise the spec tests would run the block for each single test within the spec. 
+* when using "let", please note that the object will not be destoryed until the end of the describe block. 
+* Using GenericFile.new.skip_fedora.tap to create fake objects in Solr without writing to Fedora.
+* It's also possible to mock solr responses instead of creating a fake object in Solr. 
+* Migration tasks should not be used to set up objects in tests. 
+* To use "find_or_create" instead of "find" especially for setting up users.
+* To use FactoryGirl.build_stubbed(:new_user) to create new mock objects that are not actually created in the database. 
+* Create is new+save. so use "new" to save time if the test objects don't need to be saved to database. 
+
 TODO
 ----
 * Patterns
@@ -133,3 +144,4 @@ TODO
 * Code Style
 * Testing
 * Continuous Integration
+
