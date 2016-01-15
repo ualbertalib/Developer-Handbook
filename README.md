@@ -129,7 +129,7 @@ When a bug or feature is identified which requires a change.
 Tips for Rspec Tests:
 To allow optimization for test speed:
 * Scope for "before do" and "after do" should be set as :all whenever possible, instead of using :each. Otherwise the spec tests would run the block for each single test within the spec. 
-* when using "let", please note that the object will not be destoryed until the end of the describe block. 
+* when using "let", please note that the object will not be destroyed until the end of the describe block. 
 * Using GenericFile.new.skip_fedora.tap to create fake objects in Solr without writing to Fedora.
 * It's also possible to mock solr responses instead of creating a fake object in Solr. 
 * Migration tasks should not be used to set up objects in tests. 
