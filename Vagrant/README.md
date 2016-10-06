@@ -155,8 +155,7 @@ Vagrantizing a box
         "name": "virtualbox",
         "url": "http://129.128.46.152/vagrantboxes/hydranorth_centos67-x86_64-20161005.box",
         "checksum_type": "sha1",
-        "checksum": "c77c8ea7e42d1df91d5ff890a5309192bf1ab540
-"
+        "checksum": "c77c8ea7e42d1df91d5ff890a5309192bf1ab540"
       }]
     }]
 
