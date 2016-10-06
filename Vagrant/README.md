@@ -2,10 +2,10 @@ Vagrant is is a tool to create and configure lightweight, reproducible, and port
 
 Installation for Windows 7 (64 bit)
 ============
-1. Install VirtualBox.  The latest as of writing is VirtualBox 5.0.8 and is available from: 
-http://download.virtualbox.org/virtualbox/5.0.8/VirtualBox-5.0.8-103449-Win.exe
-2. Install Vagrant. The latest as of writing is Vagrant 1.7.4 and is available from: 
-https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4.msi via http://www.vagrantup.com/downloads.html
+1. Install VirtualBox.  The latest as of writing is VirtualBox 5.0.26 and is available from: 
+http://download.virtualbox.org/virtualbox/
+2. Install Vagrant. The latest as of writing is Vagrant 1.8.4 and is available from: 
+http://www.vagrantup.com/downloads.html
 3. The 'Default Machine Folder' for Virtualbox is 'VirtualBox VMs' in your user directory.  Since, at our place of work,
 our user directory is on a shared drive that is synced on startup/shutdown this is a less than ideal to be storing 
 files associated with our VMs.  If you notice disk space warnings or really slow logins this could be the problem.  To set
@@ -37,10 +37,10 @@ Now you're ready to create your first Vagrant based project.
 3. Create a Vagrantfile. Vagrantfiles are a simple configuration file using Ruby to define your development environment.
 
     ```
-    vagrant init centos6.5 //libroot/ITS_Share/vagrantboxes/golden_centos65-x86_64-20140609.box
+    vagrant init ual/centos6.7 http://129.128.46.152/vagrantboxes.centos67.json
     ```  
-4. Create the development environment.  Since this is the first time, the vagrant box will be copied from 
-  //libroot/ITS_Share/vagrantboxes/golden_centos65-x86_64-20140609.box to your machinefolder/centos6.5  This snapshot will   be reused anytime your refer to centos6.5 in this or future Vagrantfiles.  A copy of the snapshot that is now in your 
+4. Create the development environment.  Since this is the first time, the most recent vagrant box listed in the metadata file will be copied from 
+  http://129.128.46.152/vagrantboxes/ to your machinefolder/centos6.7*  This snapshot will   be reused anytime your refer to ual/centos6.7 in this or future Vagrantfiles.  A copy of the snapshot that is now in your 
   machinefolder will be made and called something like '_default_1402698355768_83024' in your machinefolder.  This is the 
   virtual machine that Vagrant is currently bringing up for you.
 
@@ -83,7 +83,7 @@ Other things to know
  ```
  If 'vagrant box update' doesn't work for you try
  ```
- vagrant box remove 'ual/centos6.5'
+ vagrant box remove 'ual/centos6.7'
  vagrant up dmp # a good Vagrantfile will have the info about the base box included
  
  ```
@@ -101,7 +101,7 @@ http://docs.vagrantup.com/v2/boxes/format.html
 ```
 try below to refer to the json versioning file:
 ```
-vagrant box add ual/hydranorth //libroot/ITS_Share/vagrantboxes/XXXXX.json
+vagrant box add ual/hydranorth http://129.128.46.152/vagrantboxes/XXXXX.json
 ```
 
 
@@ -114,7 +114,7 @@ vagrant box add ual/hydranorth //libroot/ITS_Share/vagrantboxes/XXXXX.json
      mount_options: ["dmode=775,fmode=664"]
  ```
  
- 4. In Ubuntu, to map to ITS_Share and access golden images:
+ 4. In Ubuntu, to map to ITS_Share and access (older) golden images:
     1. add the line to the end of the /etc/fstab file with ```sudo vi /etc/fstab```
 
     ```//libroot/ITS_Share  /libroot/ITS_Share  cifs  credentials=/home/wshi/.smbcredentials,sec=ntlm  0  0```
@@ -148,24 +148,18 @@ Vagrantizing a box
   ```
   {
     "name": "ual/hydranorth",
-    "description": "This box contains ruby 2.1.5, hydranorth (from sufia engine), passenger/httpd, mysql redis, fits, and jetty/solr/fedora.",
+    "description": "This box contains ruby 2.1.5, hydranorth (from sufia engine), passenger/httpd, mysql, redis, fits, and jetty/solr/fedora.",
     "versions": [{
-      "version": "0.1.0",
+      "version": "1.5.0",
       "providers": [{
         "name": "virtualbox",
-        "url": "file:////libroot/ITS_Share/vagrantboxes/hydranorth_centos65-x86_64-20141029.box",
+        "url": "http://129.128.46.152/vagrantboxes/hydranorth_centos67-x86_64-20161005.box",
         "checksum_type": "sha1",
-        "checksum": "c94030f290f8e6d158a91a3ab7022ed73faadd35"
-      }]
-    }, {
-      "version": "2.2.0",
-      "providers": [{
-        "name": "virtualbox",
-        "url": "file:////libroot/ITS_Share/vagrantboxes/hydranorth_centos65-x86_64-20150304.box",
-        "checksum_type": "sha1",
-        "checksum": "b0bfd4b629cc1bc51f4407643fb1cb0877f9d796"
+        "checksum": "c77c8ea7e42d1df91d5ff890a5309192bf1ab540
+"
       }]
     }]
+
   }
   ```
   hint: ```openssl dgst -sha1 <filename>``` to generate checksum
