@@ -16,10 +16,13 @@ the 'Default Machine Folder' open a command line terminal (i.e. go to the Start 
 
 Installation for Ubuntu
 ====================
-1. Install VirtualBox. The latest as of writing is VirtualBox 5.0.8 and is available from:
-https://www.virtualbox.org/wiki/Linux_Downloads. There are instructions there for adding the source repo to your ```/etc/apt/sources.list```.
-(note: don't install Ubuntu's packaged version, which is 4.3.26)
-2. Install vagrant. The latest in the public repository is 1.7.3. ```sudo apt-get install vagrant```
+
+* ```Ubuntu 16.10``` (Yakkety): As of 2016-11-21, Vagrant will not boot CentOS images for this Ubuntu version. Avoid this version of Ubuntu for now.
+* ```Ubuntu 16.04``` (Xenial): Just do ```apt-get install virtualbox vagrant```. This installs VirtualBox 5.0.24 and vagrant 1.8.1.
+* ```Older```: The following notes likely apply:
+ 1. Install VirtualBox. The latest as of writing is VirtualBox 5.0.8 and is available from:
+https://www.virtualbox.org/wiki/Linux_Downloads. There are instructions there for adding the source repo to your ```/etc/apt/sources.list```. (note: don't install Ubuntu's packaged version, which is 4.3.26)
+ 2. Install vagrant. The latest in the public repository is 1.7.3. ```sudo apt-get install vagrant```
 
 
 Simple Walkthrough
@@ -37,7 +40,7 @@ Now you're ready to create your first Vagrant based project.
 3. Create a Vagrantfile. Vagrantfiles are a simple configuration file using Ruby to define your development environment.
 
     ```
-    vagrant init ual/centos6.7 http://129.128.46.152/vagrantboxes.centos67.json
+    vagrant init ual/centos6.7 http://129.128.46.152/vagrantboxes/centos67.json
     ```  
 4. Create the development environment.  Since this is the first time, the most recent vagrant box listed in the metadata file will be copied from 
   http://129.128.46.152/vagrantboxes/ to your machinefolder/centos6.7*  This snapshot will   be reused anytime your refer to ual/centos6.7 in this or future Vagrantfiles.  A copy of the snapshot that is now in your 
