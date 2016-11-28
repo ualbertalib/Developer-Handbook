@@ -28,6 +28,7 @@ Developing HydraNorth on a Vagrant VM with the Ansible playbook applied we're fi
 * get latest branches from github ```git fetch```
 * set user name(```git config --global user.name "your name"```) and email(```git config --global user.email your.email```) for new vm  
 * set url for commits ```git remote set-url origin  https://your.login@github.com/ualbertalib/your.repository.git```
+* when ansible deploys your development source tree, it frequently clobbers some files that contain secrets that should not be committed (e.g. config/database/yml). Protect these files from becoming accidental commited with ```git update-index --assume-unchanged path/to/file``` 
 
 UnCommon Tips
 =============
