@@ -1,4 +1,4 @@
-[[Jenkins](https://jenkins.io)] is our continuous integration server. It is used to test builds, run unit test, deploy (to a VM) and run integration/performance tests. 
+[[Jenkins](https://jenkins.io)] is our continuous integration server. It is used to test builds, run unit test, deploy (to a VM) and run integration/performance tests. The instructions that follow are targeted to the Jenkins server running on the DI standup workstation.
 
 Installation
 ===

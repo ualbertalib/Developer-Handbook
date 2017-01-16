@@ -117,7 +117,7 @@ vagrant box add ual/hydranorth http://129.128.46.152/vagrantboxes/XXXXX.json
      mount_options: ["dmode=775,fmode=664"]
  ```
  
- 4. In Ubuntu, to map to ITS_Share and access (older) golden images:
+ 4. In Ubuntu and CentOS, to map to ITS_Share and access golden images:
     1. add the line to the end of the /etc/fstab file with ```sudo vi /etc/fstab```
 
     ```//libroot/ITS_Share  /libroot/ITS_Share  cifs  credentials=/home/wshi/.smbcredentials,sec=ntlm  0  0```
@@ -153,10 +153,18 @@ Vagrantizing a box
     "name": "ual/hydranorth",
     "description": "This box contains ruby 2.1.5, hydranorth (from sufia engine), passenger/httpd, mysql, redis, fits, and jetty/solr/fedora.",
     "versions": [{
-      "version": "1.5.0",
+      "version": "0.1.0",
       "providers": [{
         "name": "virtualbox",
-        "url": "http://129.128.46.152/vagrantboxes/hydranorth_centos67-x86_64-20161005.box",
+        "url": "http://129.128.46.152/vagrantboxes/hydranorth_centos65-x86_64-20141029.box",
+        "checksum_type": "sha1",
+        "checksum": "c94030f290f8e6d158a91a3ab7022ed73faadd35"
+      }]
+    }, {
+      "version": "2.2.0",
+      "providers": [{
+        "name": "virtualbox",
+        "url": "http://129.128.46.152/vagrantboxes/hydranorth_centos65-x86_64-20150304.box",
         "checksum_type": "sha1",
         "checksum": "c77c8ea7e42d1df91d5ff890a5309192bf1ab540"
       }]

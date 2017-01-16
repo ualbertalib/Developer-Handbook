@@ -10,7 +10,10 @@ Single source of documentation for the University of Alberta Libraries developer
   * [Vagrant](Vagrant/README.md)
 * [Configuration Management](#configuration-management)
   * [Ansible](Ansible/README.md)
-* [Rails](Rails/README.md)
+* [Continuous Integration](Jenkins/README.md)
+* [Rails](RubyonRails/README.md)
+* [Miscellaneous](Miscellaneous/README.md)
+  * [Personnel](Personnel/README.md)
 
 Version Control
 ---------------
@@ -22,7 +25,7 @@ Version control is important to our operation
  * backup
 
 Github https://github.com/ualbertalib  
-Mercurial https://code.library.ualberta.ca/hg/ -- requires Network login / Windows credentials
+Ops managed Github https://code.library.ualberta.ca/gitweb/ -- requires Network login / Windows credentials
 
 SSH Keys
 --------
@@ -136,12 +139,4 @@ To allow optimization for test speed:
 * To use "find_or_create" instead of "find" especially for setting up users.
 * To use FactoryGirl.build_stubbed(:new_user) to create new mock objects that are not actually created in the database. 
 * Create is new+save. so use "new" to save time if the test objects don't need to be saved to database. 
-
-TODO
-----
-* Patterns
-* GitHub - Peter's working on this in branch pb-github
-* Code Style
-* Testing
-* Continuous Integration
 
