@@ -7,7 +7,7 @@ Allows the creation of light-weight containers that run within a host in a manne
 
 ## What is Docker Compose? ##
 
-Allows defining and running a multi-container Docker application. A docker-compose.yml defines the services pulled into the application (e.g., Docker images to include in the application). `  
+Allows defining and running a multi-container Docker application. A docker-compose.yml defines the services pulled into the application (e.g., Docker images to include in the application).  
 
 
 ## How is Docker being used? ##
@@ -227,6 +227,10 @@ Any special instructions on updating a local container otherwise link to the gen
 
 A list of frequently used commands specific to this image. Link to [Developer Handbook](https://github.com/ualbertalib/Developer-Handbook/blob/master/docker/README.md#Frequently-used-commands)
 
+## Special notes / warnings / gotchas ##
+
+Notes to leave to a future user/maintainer that might hightlights something counter-intuitive.
+
 
 ## Future considerations ##
 
@@ -244,6 +248,8 @@ To capture any proposed future work or future considerations.
   * [links](https://docs.docker.com/compose/compose-file/compose-file-v2/#links)
   * [depends_on](https://docs.docker.com/compose/compose-file/compose-file-v2/#dependson)
 
+
+## Special notes / warnings / gotchas ##
 
 
 
