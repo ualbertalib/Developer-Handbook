@@ -1,36 +1,41 @@
-# Docker 101 #
+# Docker 101
 
-## What is Docker? ##
+## What is Docker?
 
 Allows the creation of light-weight containers that run within a host in a manner avoiding the overhead of a full-fledged virtual machine. The docker image specifies a base image (via the Dockerfile FROM option) to build upon along with a definition specifying the dependencies of a given application one is containerizing and a packaging mechanism to share the Docker images.
 
 
-## What is Docker Compose? ##
+## What is Docker Compose?
 
 Allows defining and running a multi-container Docker application. A docker-compose.yml defines the services pulled into the application (e.g., Docker images to include in the application).  
 
 
-## How is Docker being used? ##
+## How is Docker being used?
 
 * lightweight container for development/testing/debugging in a defined and easily repeatable environment in a team environment
 
+* Further details see the [DI Docker Images README](https://github.com/ualbertalib/di_docker_images/blob/master/README.md)
 
-## Requirements ##
+## Requirements
+
+* Details see the [DI Docker Images README](https://github.com/ualbertalib/di_docker_images/blob/master/README.md#requirements--deliverables)
+
+## Software requirements
 
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Docker Compose](https://docs.docker.com/compose/install/)  
   * version 1.13 or higher as of 2017-05-10
 
 
-## Docker: Usage ##
+## Docker: Usage
 
 First usage steps:
 
 1. Acquire the Docker image. There are two options:
     1. Download the prebuilt images from [ualibraries DockerHub](https://hub.docker.com/r/ualibraries/)
-        * `docker pull ualibraries/${image_name}:${option_tag}`
+        * `docker pull ualibraries/${image_name}:${optional_tag}`
     2. Build from `Dockerfile` definition 
-        * `docker build -t ualibraries/${image_name}:${option_tag} -f ${dockerfile} ${dockerfile_directory`
+        * `docker build -t ualibraries/${image_name}:${optional_tag} -f ${dockerfile} ${dockerfile_directory`
 
 2. Run the Docker image creating a container
 
@@ -47,7 +52,7 @@ After initial `docker run`,
 
 
 
-## Docker-Compose: Usage  ##
+## Docker-Compose: Usage
 
 * Pull images associated with a service defined in a docker-compose.yml
   * `docker-compose -f docker-compose.yml pull`
@@ -59,29 +64,35 @@ After initial `docker run`,
   * `docker-compose -f docker-compose.yml restart`
 
 
-## Maintenance/Creation Tasks ##
+## Maintenance/Creation Tasks
 
-### Creating from scratch  ###
+### Creating from scratch
 
 * Create a GitHub repo to contain the files
 * Start with [README.md template](#readme-template)
 * Populate the supporting Docker files (e.g, Dockerfile, docker-compose.yml)
 * Build the Docker image from `Dockerfile` definition
 * Test image
-* Push to https://hub.docker.com/r/ualibraries/
+* Integrate with CI (e.g. Travis CI) [Example of CI in docker images](https://github.com/docker-library/ruby/blob/master/.travis.yml)
+* Push to [Docker Hub](#updating-image-on-docker-hub)
 * Test image from Docker Hub
 * If applicable, test Docker Compose 
 
-### Updating image ###
+<a name="updating-image-on-docker-hub"></a>
+### Updating image on Docker Hub 
 
 * Remove local container, if present
 * Build the new Docker image
+  * `docker build -t ualibraries/${image_name}:${optional_tag}` 
 * Test image
-* Push to https://hub.docker.com/r/ualibraries/
-* Test image from Docker Hub
+* Push to Docker Hub - https://hub.docker.com/r/ualibraries/
+  * `docker push ualibraries/${image_name}:${optional_tag}` 
+  * **ToDo**: elaborate the UAL specfic details - who has access?
+  * [reference](https://docs.docker.com/docker-hub/repos/#pushing-a-repository-image-to-docker-hub)
+* Test image by pulling from Docker Hub
 * If applicable, test Docker Compose 
 
-### Updating local container ###
+### Updating local container
 
 To upgrade to a newer release of the image: 
 
@@ -98,7 +109,7 @@ To upgrade to a newer release of the image:
   * `docker run ...`
 
 
-### Updating local Docker Compose ###
+### Updating local Docker Compose
 
 To upgrade to a newer release of the image:
 
@@ -115,7 +126,7 @@ To upgrade to a newer release of the image:
   * `docker-compose -f docker-compose.yml up -d`
 
 
-## Frequently used commands ##
+## Frequently used commands
 
 * Docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
   * (reference](https://docs.docker.com/engine/reference/run/)
@@ -167,7 +178,7 @@ To upgrade to a newer release of the image:
 
 
 
-## Terminology ##
+## Terminology
   * Docker container versus image
     * image: created by the build process, stored in Docker Hub registry, inert, essentially a snapshot of a container
     * container: running instance of an image
@@ -175,64 +186,64 @@ To upgrade to a newer release of the image:
 
 <a name="readme-template">
 
-## Proposed README.md template for DI Docker images ##
+## Proposed README.md template for DI Docker images
 
 ```
-# Title describing what the DI Docker image is/does/contains #
+# Title describing what the DI Docker image is/does/contains
 
 
-## What is this? ##
+## What is this?
 
 A paragraph or two describing the purpose/goal of this Docker project. What need does it fulfill?  
 
 
-## Requirements ##
+## Requirements
 
 What is required to work with this Docker container? What are the prerequisites?
 
 
-## In this Docker Container ##
+## In this Docker Container
 
 What is in the Docker Container? Aim, give the reader a brief idea at a high level what the Dockerfile builds without the user having to read and understand the Dockerfile. Reasoning for use the given base image?
 
 
-## Usage ##
+## Usage
 
 Audience: individual with little Docker experience or limited Linux admin experience. Include any special instructions otherwise link to the general [Developer Handbook Docker Usage Section](https://github.com/ualbertalib/Developer-Handbook/blob/master/docker/README.md#Usage)
 
-### Container creation ###
+### Container creation
 
 Steps to run the container. 
 
-### Other usage instructions, if applicable ###
+### Other usage instructions, if applicable
 
 For example, how to run test tasks within the container or how to setup for debugging.
 
 
-## Maintenance ##
+## Maintenance
 
 Include maintenance tasks e.g., update Docker Hub
 
-### Updating Docker Hub ###
+### Updating Docker Hub
 
 * Associated Docker Hub repository URL
 * Any special instructions on updating Docker Hub otherwise link to the general [docker stop, rm, pull new version, run notes](#Upgrading-local-container)
 
-### Upgrading local container ###
+### Upgrading local container
 
 Any special instructions on updating a local container otherwise link to the general [docker stop, rm, pull new version, run notes](#Upgrading-local-container)
 
 
-## Frequently used commands ##
+## Frequently used commands
 
 A list of frequently used commands specific to this image. Link to [Developer Handbook](https://github.com/ualbertalib/Developer-Handbook/blob/master/docker/README.md#Frequently-used-commands)
 
-## Special notes / warnings / gotchas ##
+## Special notes / warnings / gotchas
 
 Notes to leave to a future user/maintainer that might hightlights something counter-intuitive.
 
 
-## Future considerations ##
+## Future considerations
 
 To capture any proposed future work or future considerations.
 
@@ -240,7 +251,7 @@ To capture any proposed future work or future considerations.
 
 
 
-## Notes around practice ## 
+## Notes around practice
 
 * Take care around the use the Docker Hub ":latest" tag because it is "the last build/tag that ran without a specific tag/version specified" [reference](https://medium.com/@mccode/the-misunderstood-docker-tag-latest-af3babfd6375)
 
@@ -249,19 +260,26 @@ To capture any proposed future work or future considerations.
   * [depends_on](https://docs.docker.com/compose/compose-file/compose-file-v2/#dependson)
 
 
-## Special notes / warnings / gotchas ##
+## Special notes / warnings / gotchas
 
 
 
-## Future considerations ##
+## Future considerations
 
 * Consider [configuration of automated builds on Docker Hub](https://docs.docker.com/docker-hub/builds/)
 
+* Docker Swarm for production deployments [Reference DI Docker Images #10](https://github.com/ualbertalib/di_docker_images/issues/10)
+  * https://docs.docker.com/compose/production/
+  * https://docs.docker.com/get-started/
+  * https://github.com/docker/labs/tree/master/beginner (python app but very similar to a rails app)
+
+* Atomic [Reference DI Docker Images #11](https://github.com/ualbertalib/di_docker_images/issues/11)
 
 
-## References ##
 
-### General ###
+## References
+
+### General
 
 * Docker Get Started: https://docs.docker.com/get-started
 
