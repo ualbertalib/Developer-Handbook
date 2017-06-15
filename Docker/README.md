@@ -7,7 +7,7 @@ Allows the creation of light-weight containers that run within a host in a manne
 
 ## What is Docker Compose?
 
-Allows defining and running a multi-container Docker application. A docker-compose.yml defines the services pulled into the application (e.g., Docker images to include in the application).  
+Allows defining and running a multi-container Docker application. A docker-compose.yml defines the services pulled into the application (e.g., Docker images to include in the application).
 
 
 ## How is Docker being used?
@@ -23,7 +23,7 @@ Allows defining and running a multi-container Docker application. A docker-compo
 ## Software requirements
 
 * [Docker](https://docs.docker.com/engine/installation/)
-* [Docker Compose](https://docs.docker.com/compose/install/)  
+* [Docker Compose](https://docs.docker.com/compose/install/)
   * version 1.13 or higher as of 2017-05-10
 
 
@@ -32,16 +32,16 @@ Allows defining and running a multi-container Docker application. A docker-compo
 First usage steps:
 
 1. Acquire the Docker image. There are two options:
-    1. Download the prebuilt images from [ualibraries DockerHub](https://hub.docker.com/r/ualibraries/)
-        * `docker pull ualibraries/${image_name}:${optional_tag}`
-    2. Build from `Dockerfile` definition 
-        * `docker build -t ualibraries/${image_name}:${optional_tag} -f ${dockerfile} ${dockerfile_directory`
+    1. Download the prebuilt images from [ualbertalib DockerHub](https://hub.docker.com/u/ualbertalib/)
+        * `docker pull ualbertalib/${image_name}:${optional_tag}`
+    2. Build from `Dockerfile` definition
+        * `docker build -t ualbertalib/${image_name}:${optional_tag} -f ${dockerfile} ${dockerfile_directory`
 
 2. Run the Docker image creating a container
 
     * `docker run -d [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]`
 
-After initial `docker run`, 
+After initial `docker run`,
 
 * Exec shell within container
   * `docker exec -it ${container_id}  bash`
@@ -74,30 +74,38 @@ After initial `docker run`,
 * Build the Docker image from `Dockerfile` definition
 * Test image
 * Integrate with CI (e.g. Travis CI) [Example of CI in docker images](https://github.com/docker-library/ruby/blob/master/.travis.yml)
-* Push to [Docker Hub](#updating-image-on-docker-hub)
+* Configure [Docker Hub](hub.docker.com) to [autobuild your image](#autobuilding-image-on-docker-hub)
 * Test image from Docker Hub
-* If applicable, test Docker Compose 
+* If applicable, test Docker Compose
 
-<a name="updating-image-on-docker-hub"></a>
-### Updating image on Docker Hub 
+<a name="autobuilding-image-on-docker-hub"></a>
+### Autobuilding image on Docker Hub
 
-* Remove local container, if present
-* Build the new Docker image
-  * `docker build -t ualibraries/${image_name}:${optional_tag}` 
-* Test image
-* Push to Docker Hub - https://hub.docker.com/r/ualibraries/
-  * `docker push ualibraries/${image_name}:${optional_tag}` 
-  * **ToDo**: elaborate the UAL specfic details - who has access?
-  * [reference](https://docs.docker.com/docker-hub/repos/#pushing-a-repository-image-to-docker-hub)
+* Readup on [Configure automated builds on Docker Hub](https://docs.docker.com/docker-hub/builds/). Below is a summary of this article.
+
+
+#### Why Autobuilding the image vs manually provisioining the image?
+
+* Images built in this way are built exactly as specified.
+* The Dockerfile is available to anyone with access to your Docker Hub repository.
+* Your repository is kept up-to-date with code changes automatically (Less manual work to update/maintain docker images).
+* Better documentation as a result, you know exactly how that image was created and theres a link to the github repo as well.
+
+#### How to Autobuild the image on dockerhub
+
+* Make sure you have a account on docker hub and has been linked to your github account
+* Instead of creating a docker repo, you can create an automated build (found under the same `Create` dropdown on dockerhub)
+* Specify the locations and behavior of the builds and how to create different tags/versions of the images from your github repo
+* Trigger the builds on dockerhub repo manually or by pushing code to the github repo to get our first image built and make sure everything is working
 * Test image by pulling from Docker Hub
-* If applicable, test Docker Compose 
+* If applicable, test Docker Compose
 
 ### Updating local container
 
-To upgrade to a newer release of the image: 
+To upgrade to a newer release of the image:
 
 * download the updated Docker image:
-  * `docker pull ualibraries\${CONTAINER_ID}:${TAG}`
+  * `docker pull ualbertalib\${CONTAINER_ID}:${TAG}`
 
 * stop currently running image:
   * `docker stop ${container_id}`
@@ -119,7 +127,7 @@ To upgrade to a newer release of the image:
 * stop currently running services:
   * `docker-compose -f docker-compose.yml stop`
 
-* Removed the stopped container: 
+* Removed the stopped container:
   * `docker-compose -f docker-compose.yml rm`
 
 * Start the updated Docker image:
@@ -131,9 +139,9 @@ To upgrade to a newer release of the image:
 * Docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
   * (reference](https://docs.docker.com/engine/reference/run/)
 
-* Docker run: mount a host directory as a data volume in the container 
+* Docker run: mount a host directory as a data volume in the container
   * `-v ${HOST_DIRECTORY}:${CONTAINER_DIR}`
-  * overlays but does not remove pre-existing content in container [ref.](https://docs.docker.com/engine/tutorials/dockervolumes/) 
+  * overlays but does not remove pre-existing content in container [ref.](https://docs.docker.com/engine/tutorials/dockervolumes/)
 
 * Docker run: map ports
   * `-p ${HOST_PORT}:${CONTAINER_PORT}`
@@ -194,7 +202,7 @@ To upgrade to a newer release of the image:
 
 ## What is this?
 
-A paragraph or two describing the purpose/goal of this Docker project. What need does it fulfill?  
+A paragraph or two describing the purpose/goal of this Docker project. What need does it fulfill?
 
 
 ## Requirements
@@ -213,7 +221,7 @@ Audience: individual with little Docker experience or limited Linux admin experi
 
 ### Container creation
 
-Steps to run the container. 
+Steps to run the container.
 
 ### Other usage instructions, if applicable
 
@@ -266,8 +274,6 @@ To capture any proposed future work or future considerations.
 
 ## Future considerations
 
-* Consider [configuration of automated builds on Docker Hub](https://docs.docker.com/docker-hub/builds/)
-
 * Docker Swarm for production deployments [Reference DI Docker Images #10](https://github.com/ualbertalib/di_docker_images/issues/10)
   * https://docs.docker.com/compose/production/
   * https://docs.docker.com/get-started/
@@ -275,15 +281,13 @@ To capture any proposed future work or future considerations.
 
 * Atomic [Reference DI Docker Images #11](https://github.com/ualbertalib/di_docker_images/issues/11)
 
-
-
 ## References
 
 ### General
 
 * Docker Get Started: https://docs.docker.com/get-started
 
-* Docker: https://docs.docker.com/engine/ 
+* Docker: https://docs.docker.com/engine/
 
 * Docker Compose Overview: https://docs.docker.com/compose/overview/
 
