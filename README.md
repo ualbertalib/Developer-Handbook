@@ -10,6 +10,7 @@ Single source of documentation for the University of Alberta Libraries developer
   * [Vagrant](Vagrant/README.md)
 * [Configuration Management](#configuration-management)
   * [Ansible](Ansible/README.md)
+  * [Docker](Docker/README.md)
 * [Continuous Integration](Jenkins/README.md)
 * [Rails](RubyonRails/README.md)
 * [Miscellaneous](Miscellaneous/README.md)
