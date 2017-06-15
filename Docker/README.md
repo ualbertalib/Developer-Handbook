@@ -32,10 +32,10 @@ Allows defining and running a multi-container Docker application. A docker-compo
 First usage steps:
 
 1. Acquire the Docker image. There are two options:
-    1. Download the prebuilt images from [ualibraries DockerHub](https://hub.docker.com/r/ualibraries/)
-        * `docker pull ualibraries/${image_name}:${optional_tag}`
+    1. Download the prebuilt images from [ualbertalib DockerHub](https://hub.docker.com/u/ualbertalib/)
+        * `docker pull ualbertalib/${image_name}:${optional_tag}`
     2. Build from `Dockerfile` definition
-        * `docker build -t ualibraries/${image_name}:${optional_tag} -f ${dockerfile} ${dockerfile_directory`
+        * `docker build -t ualbertalib/${image_name}:${optional_tag} -f ${dockerfile} ${dockerfile_directory`
 
 2. Run the Docker image creating a container
 
@@ -105,7 +105,7 @@ After initial `docker run`,
 To upgrade to a newer release of the image:
 
 * download the updated Docker image:
-  * `docker pull ualibraries\${CONTAINER_ID}:${TAG}`
+  * `docker pull ualbertalib\${CONTAINER_ID}:${TAG}`
 
 * stop currently running image:
   * `docker stop ${container_id}`
