@@ -43,6 +43,10 @@ This is instruction on how to use latest official solr docker image with hydra a
     * [http://localhost:8983](http://localhost:8983)
 
 
+## Official Documentaion
+
+Here is a [link](https://hub.docker.com/_/solr/) to the official Solr dockerhub page.
+
 ## Maintenance
 
 This is official solr image we do not maintain it.

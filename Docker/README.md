@@ -66,6 +66,10 @@ After initial `docker run`,
 
 ## Maintenance/Creation Tasks
 
+## Usage of official Sorl image with hydra apps
+
+  Following [document](Solr/README.md) describes usage of official Solr image with hydra apps.
+
 ### Creating from scratch
 
 * Create a GitHub repo to contain the files
