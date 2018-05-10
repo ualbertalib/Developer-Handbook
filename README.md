@@ -10,7 +10,7 @@ Single source of documentation for the University of Alberta Libraries developer
 * [Configuration Management](#configuration-management)
   * [Ansible](Ansible/README.md)
   * [Docker](Docker/README.md)
-* [Continuous Integration](Jenkins/README.md)
+* [Continuous Integration](Travis-CI/README.md)
 * [Rails](RubyonRails/README.md)
 * [Miscellaneous](Miscellaneous/README.md)
   * [Personnel](Personnel/README.md)
