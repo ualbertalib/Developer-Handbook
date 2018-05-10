@@ -14,12 +14,6 @@ Allows defining and running a multi-container Docker application. A docker-compo
 
 * lightweight container for development/testing/debugging in a defined and easily repeatable environment in a team environment
 
-* Further details see the [DI Docker Images README](https://github.com/ualbertalib/di_docker_images/blob/master/README.md)
-
-## Requirements
-
-* Details see the [DI Docker Images README](https://github.com/ualbertalib/di_docker_images/blob/master/README.md#requirements--deliverables)
-
 ## Software requirements
 
 * [Docker](https://docs.docker.com/engine/installation/)
@@ -55,13 +49,16 @@ After initial `docker run`,
 ## Docker-Compose: Usage
 
 * Pull images associated with a service defined in a docker-compose.yml
-  * `docker-compose -f docker-compose.yml pull`
-* Setup application
-  * `docker-compose -f docker-compose.yml up -d`
+  * `docker-compose pull`
+* Setup application and run in background
+  * `docker-compose up -d`
 * Subsequent uses
-  * `docker-compose -f docker-compose.yml stop`
-  * `docker-compose -f docker-compose.yml start`
-  * `docker-compose -f docker-compose.yml restart`
+  * `docker-compose stop`
+  * `docker-compose rm`
+  * `docker-compose start`
+  * `docker-compose restart`
+* Using a specific docker-compose yml, i.e. docker-compose.lightweight.yml
+  * `docker-compose -f docker-compose.lightweight.yml up -d`
 
 
 ## Maintenance/Creation Tasks
