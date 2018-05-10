@@ -7,7 +7,6 @@ Single source of documentation for the University of Alberta Libraries developer
   * [Github](Github/README.md)  
 * [SSH Keys](#ssh-keys)
 * [DevOps](#devops)
-  * [Vagrant](Vagrant/README.md)
 * [Configuration Management](#configuration-management)
   * [Ansible](Ansible/README.md)
   * [Docker](Docker/README.md)
@@ -80,35 +79,17 @@ Once an application is 'working' it is deployed in dev, test, and prod environme
  * may be 'golden' vm on Developer desktop or vm provided by Operations for this purpose
  * no backups!
 
-**Using [Vagrant](Vagrant/README.md) to create a development environment on your workstation is recommended.**
-
-####Test Environment
+####User Acceptance Testing (UAT) Environment
  * developers may have sudo privileges
- * software installed from RPM
- * installed using configuration management software
+ * provisioned using Docker Images
  * may point to services (like MySQL) on external test server
- * primary purpose is to run a battery of tests for acceptance and performance
+ * primary purpose is to provide a platform to demo to stakeholders for acceptance and performance
 
 ####Production Environments
  * developers do not have sudo privileges
  * software installed from RPM
  * installed using configuration management software
  * point to services (like MySQL) on external production server (with backups and security)
-
-###Configuration Management
-The first time
-
-1. Developer installs the application in a headless, automated way. This might be by writing a shell script, post-install section of [[Kickstart](http://www.centos.org/docs/5/html/Installation_Guide-en-US/ch-kickstart2.html)], or Ansible.  This is accompanied by a test suite.  This assumes the Developer starts from a 'golden' vm provided by or approved by the Operations team and recording EVERY step required for installation. This vm will likely be destroyed and built again from first principles several times.  In the end nothing will be done by hand. Installation is started and finished using only one command.
-2. Developer demonstrates headless installation to Systems Administrator.  They have discussion about re-factoring this script and hardware requirements
-   * what can/should use existing infrastructure or software
-   * what can/should be packaged
-     * source or binaries for a package should be published and available from a trusted source: official project home page, institution version control release tag
-   * can/should be broken up further, what is the dependency tree?
-   * what are the final mile steps that can't/shouldn't be packaged
-     * probably contain username/passwords
-     * probably use machine names/IP/hostnames
-3. As re-factoring is completed the initial script from 1. is adjusted to reflect the current, working reality.  This could mean moving functionality from the installation script/recipe to the kickstart, or spec for an rpm.  Tests should continue to pass or be re-evaluated. 
-4. When all discussed re-factoring is done (or it's time to ship) the work products should include a kickstart (ks), one or more spec files and supporting content to build rpms, a final mile configuration script/recipe (what remains of the inital script from 1) and a test suite. Developers and Operations should both be able to build and test from these product.  Operations owns the kickstart, Dev/Ops share ownership of rpms, Developers own the tests and final mile?
 
 When a bug or feature is identified which requires a change.
 
@@ -127,17 +108,4 @@ When a bug or feature is identified which requires a change.
 9. Tests pass
 10. Change request for anything big (in accordance with ITIL principles)
 11. Deploy/update component in 'prod' environment
-
-**Writing and running [Ansible](Ansible/README.md) playbooks is the recommended practice for deployment of applications.**
-
-Tips for Rspec Tests:
-To allow optimization for test speed:
-* Scope for "before do" and "after do" should be set as :all whenever possible, instead of using :each. Otherwise the spec tests would run the block for each single test within the spec. 
-* when using "let", please note that the object will not be destroyed until the end of the describe block. 
-* Using GenericFile.new.skip_fedora.tap to create fake objects in Solr without writing to Fedora.
-* It's also possible to mock solr responses instead of creating a fake object in Solr. 
-* Migration tasks should not be used to set up objects in tests. 
-* To use "find_or_create" instead of "find" especially for setting up users.
-* To use FactoryGirl.build_stubbed(:new_user) to create new mock objects that are not actually created in the database. 
-* Create is new+save. so use "new" to save time if the test objects don't need to be saved to database. 
 
