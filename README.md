@@ -68,10 +68,10 @@ DevOps
 ------
 DevOps means different things to different people.  To us it means Developers and Operations working together (Dev+Ops=DevOps) towards the same goal of putting quality applications in production as efficiently and painlessly as possible.
 
-###Dev/Test/Production
+### Dev/Test/Production
 Once an application is 'working' it is deployed in dev, test, and prod environments. This facilitates the hand off between the Developer and Operations, by giving the Developer a production-like environment to build in, a test environment for developers and Operations to collaborate and practice on, and a production environment that is a known quantity to Operations because it's been proven.
 
-####Development Environment
+#### Development Environment
  * developers have sudo privileges
  * some software probably installed from version control
  * if depends on services like MySQL, these probably exist on the same machine
@@ -79,16 +79,17 @@ Once an application is 'working' it is deployed in dev, test, and prod environme
  * may be 'golden' vm on Developer desktop or vm provided by Operations for this purpose
  * no backups!
 
-####User Acceptance Testing (UAT) Environment
+#### User Acceptance Testing (UAT) Environment
  * developers may have sudo privileges
  * provisioned using Docker Images
  * may point to services (like MySQL) on external test server
  * primary purpose is to provide a platform to demo to stakeholders for acceptance and performance
 
-####Production Environments
+#### Production Environments
  * developers do not have sudo privileges
  * software installed from RPM
  * installed using configuration management software
+   * Writing and running [Ansible](Ansible/README.md) playbooks is the recommended practice for deployment of applications.
  * point to services (like MySQL) on external production server (with backups and security)
 
 When a bug or feature is identified which requires a change.
