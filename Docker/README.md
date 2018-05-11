@@ -214,7 +214,7 @@ What is in the Docker Container? Aim, give the reader a brief idea at a high lev
 
 ## Usage
 
-Audience: individual with little Docker experience or limited Linux admin experience. Include any special instructions otherwise link to the general [Developer Handbook Docker Usage Section](https://github.com/ualbertalib/Developer-Handbook/blob/master/docker/README.md#Usage)
+Audience: individual with little Docker experience or limited Linux admin experience. Include any special instructions otherwise link to the general [Developer Handbook Docker Usage Section](https://github.com/ualbertalib/Developer-Handbook/tree/master/Docker#docker-usage)
 
 ### Container creation
 
@@ -241,7 +241,7 @@ Any special instructions on updating a local container otherwise link to the gen
 
 ## Frequently used commands
 
-A list of frequently used commands specific to this image. Link to [Developer Handbook](https://github.com/ualbertalib/Developer-Handbook/blob/master/docker/README.md#Frequently-used-commands)
+A list of frequently used commands specific to this image. Link to [Developer Handbook](https://github.com/ualbertalib/Developer-Handbook/tree/master/Docker#frequently-used-commands)
 
 ## Special notes / warnings / gotchas
 
