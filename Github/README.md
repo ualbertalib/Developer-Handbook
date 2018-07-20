@@ -78,6 +78,7 @@ Checklist for cutting a Release
 ===============================
 * get the list of commits to master since the previous release: on the list of releases, there is a link under the previous release: "20 commits to master since this release" 
 * in the release notes for the new release, make an entry for each merged pull request in the commit list (those that begin "Merge pull request #830") - use the title of the issue that the PR closed, or a brief descriptive text, and be sure to include the link to the PR
+* update the version information (if applicable). For example [in jupiter](https://github.com/ualbertalib/jupiter/blob/master/app/models/jupiter_core.rb#L17)
 * create the release tag in this form: "v1.2.3". Follow [semantic tagging](http://semver.org/) principles. 
 
 Working Principles
